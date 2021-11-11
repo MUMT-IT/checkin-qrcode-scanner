@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "firebase": "^9.3.0",
     "vue": "^2.6.11",
+    "vue-qrcode-reader": "^3.0.6",
     "vue-router": "^3.5.3"
   },
   "devDependencies": {
