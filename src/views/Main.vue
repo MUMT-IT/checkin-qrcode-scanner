@@ -64,6 +64,7 @@ export default {
       camera: 'auto',
       isSaving: true,
       info: {
+        id: null,
         thTitle: null,
         enTitle: null,
         thName: null,
@@ -80,6 +81,7 @@ export default {
   methods: {
     reset () {
       this.info = {
+        id: null,
         thTitle: null,
         enTitle: null,
         thName: null,
@@ -118,6 +120,7 @@ export default {
     async onDecode (content) {
       this.isSaving = true
       let result = content.split("|")
+      this.info.id = result[0]
       this.info.thTitle = result[6]
       this.info.thName = result[7]
       this.info.enTitle = result[9]
