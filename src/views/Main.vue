@@ -22,19 +22,27 @@
                            :track="paintOutline" @init="onInit" />
           </div>
           <div class="column">
-            <b-notification type="is-light is-success"
+            <b-notification :closable="false" type="is-light is-success"
               v-if="info.checkedInAt !== null && isSaving === false">
-              <h2 class="title">Recent Checked In</h2>
-              <h1 class="title">{{ this.info.checkedInAt.toLocaleString() }}</h1>
+              <div class="has-text-centered">
+              <span class="icon is-large">
+                <i class="far fa-check-circle has-text-success fa-4x"></i>
+              </span>
+              </div>
+              <br>
+              <h1 class="title has-text-centered is-size-3">{{ this.info.checkedInAt.toLocaleString() }}</h1>
               <h1 class="title is-size-4">{{ this.info.thTitle }} {{ this.info.thName }}</h1>
               <h1 class="subtitle is-size-4">{{ this.info.enTitle }} {{ this.info.enName }}</h1>
               <h1 class="title is-size-5">{{ this.info.thAffil }}</h1>
               <h1 class="subtitle is-size-5">{{ this.info.enAffil }}</h1>
             </b-notification>
-            <b-notification type="is-light" v-if="info.checkedInAt === null && fail === false">
-              <h1 class="title has-text-centered has-text-info">Please scan QR Code to check in.</h1>
+            <b-notification :closable="false" type="is-light" v-if="info.checkedInAt === null && fail === false">
+              <h1 class="title is-size-4 has-text-centered has-text-info">แสกน QR Code เพื่อเช็คอิน/เช็คเอ้าท์</h1>
+              <h1 class="subtitle is-size-4 has-text-centered has-text-info">
+                Please scan QR Code to check in/check out.
+              </h1>
             </b-notification>
-            <b-notification type="is-danger" v-if="fail===true">
+            <b-notification :closable="false" type="is-danger" v-if="fail===true">
               <h1 class="title has-text-centered">
                 Error saving your data.
               </h1>
@@ -42,6 +50,16 @@
                 Please contact IT unit at 092-279-9327.
               </h1>
             </b-notification>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <h1 class="has-text-info has-text-centered">
+              <strong>
+                สำหรับบุคลากร
+              </strong>
+              การเช็คอินและเช็คเอ้าท์จะเป็นการลงชื่อเข้าออกงานโดยอัตโนมัติ
+            </h1>
           </div>
         </div>
       </div>
